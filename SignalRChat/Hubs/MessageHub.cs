@@ -42,6 +42,8 @@ namespace SignalRChat.Hubs
                 ConnectionId = Context.ConnectionId
             });
             Clients.All.SendUserList(UserList);
+            //Clients.All.LoginTip(userName);
+            Clients.AllExcept(Context.ConnectionId).LoginTip(userName);
         }
 
 

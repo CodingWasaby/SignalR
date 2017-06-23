@@ -17,7 +17,9 @@ namespace ChatTest
         public Form1()
         {
             InitializeComponent();
+            alertControl1.AutoFormDelay = 3000;
             ConnectAsync();
+           
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -32,8 +34,6 @@ namespace ChatTest
         private async void ConnectAsync()
         {
             Connection = new HubConnection(ServerUri);
-
-            // 创建一个集线器代理对象
             HubProxy = Connection.CreateHubProxy("MessageHub");
 
 
@@ -52,9 +52,13 @@ namespace ChatTest
                  var lines = richTextBox1.Lines.ToList();
                  lines.Add(x + ":::" + y + "\r\n");
                  richTextBox1.Lines = lines.ToArray();
-
+                 alertControl1.Show(this, x, y);
              };
-            // 供服务端调用，将消息输出到消息列表框中
+            Action<string> act2 = x =>
+             {
+                 alertControl1.Show(this, "登录提示", x + "登陆了");
+             };
+
             HubProxy.On<List<UserModel>>("SendUserList", (list) =>
             {
                 this.Invoke(act, list);
@@ -63,6 +67,10 @@ namespace ChatTest
             HubProxy.On<string, string>("SendMessage", (x, y) =>
              {
                  this.Invoke(act1, x, y);
+             });
+            HubProxy.On<string>("LoginTip", x =>
+             {
+                 this.Invoke(act2, x);
              });
 
             try
@@ -76,5 +84,6 @@ namespace ChatTest
                 return;
             }
         }
+
     }
 }

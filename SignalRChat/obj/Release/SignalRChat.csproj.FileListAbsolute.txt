@@ -35,3 +35,40 @@ C:\Users\aska_\Downloads\Getting Started with SignalR 2.0 and MVC 5\C#\SignalRCh
 C:\Users\aska_\Downloads\Getting Started with SignalR 2.0 and MVC 5\C#\SignalRChat\obj\Release\SignalRChat.csprojResolveAssemblyReference.cache
 C:\Users\aska_\Downloads\Getting Started with SignalR 2.0 and MVC 5\C#\SignalRChat\obj\Release\SignalRChat.dll
 C:\Users\aska_\Downloads\Getting Started with SignalR 2.0 and MVC 5\C#\SignalRChat\obj\Release\SignalRChat.pdb
+D:\我的工作\SignalR\SignalRChat\bin\SignalRChat.dll.config
+D:\我的工作\SignalR\SignalRChat\bin\SignalRChat.dll
+D:\我的工作\SignalR\SignalRChat\bin\SignalRChat.pdb
+D:\我的工作\SignalR\SignalRChat\bin\Antlr3.Runtime.dll
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Owin.dll
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Owin.Security.dll
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Web.Infrastructure.dll
+D:\我的工作\SignalR\SignalRChat\bin\Newtonsoft.Json.dll
+D:\我的工作\SignalR\SignalRChat\bin\Owin.dll
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.Helpers.dll
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.Mvc.dll
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.Optimization.dll
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.Razor.dll
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.WebPages.Deployment.dll
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.WebPages.dll
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.WebPages.Razor.dll
+D:\我的工作\SignalR\SignalRChat\bin\WebGrease.dll
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Owin.xml
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Owin.Security.xml
+D:\我的工作\SignalR\SignalRChat\bin\Newtonsoft.Json.xml
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.Helpers.xml
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.Mvc.xml
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.Optimization.xml
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.Razor.xml
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.WebPages.xml
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.WebPages.Deployment.xml
+D:\我的工作\SignalR\SignalRChat\bin\System.Web.WebPages.Razor.xml
+D:\我的工作\SignalR\SignalRChat\bin\Antlr3.Runtime.pdb
+D:\我的工作\SignalR\SignalRChat\obj\Release\SignalRChat.csprojResolveAssemblyReference.cache
+D:\我的工作\SignalR\SignalRChat\obj\Release\SignalRChat.dll
+D:\我的工作\SignalR\SignalRChat\obj\Release\SignalRChat.pdb
