@@ -6,5 +6,4 @@ D:\我的工作\SignalR\SignalRChat_MI\bin\Debug\Microsoft.AspNet.SignalR.Client
 D:\我的工作\SignalR\SignalRChat_MI\bin\Debug\Newtonsoft.Json.dll
 D:\我的工作\SignalR\SignalRChat_MI\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
 D:\我的工作\SignalR\SignalRChat_MI\bin\Debug\Newtonsoft.Json.xml
-D:\我的工作\SignalR\SignalRChat_MI\obj\Debug\SignalRChat_MI.csprojResolveAssemblyReference.cache
 D:\我的工作\SignalR\SignalRChat_MI\bin\Debug\SignalRChat_MI.dll.config

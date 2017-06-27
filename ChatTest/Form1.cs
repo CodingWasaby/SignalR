@@ -16,12 +16,12 @@ namespace ChatTest
 {
     public partial class Form1 : Form, IMessageClient
     {
-        private WebSocketFactory _Socket;
+        private FMWebSocket _Socket;
         public Form1()
         {
             InitializeComponent();
             alertControl1.AutoFormDelay = 3000;
-            _Socket = new WebSocketFactory(this);
+            _Socket = new FMWebSocket(this);
             _Socket.RegisterConnection("123", "ZX");
         }
 
