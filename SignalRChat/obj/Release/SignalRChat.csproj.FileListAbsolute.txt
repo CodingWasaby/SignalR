@@ -72,3 +72,7 @@ D:\我的工作\SignalR\SignalRChat\bin\Antlr3.Runtime.pdb
 D:\我的工作\SignalR\SignalRChat\obj\Release\SignalRChat.csprojResolveAssemblyReference.cache
 D:\我的工作\SignalR\SignalRChat\obj\Release\SignalRChat.dll
 D:\我的工作\SignalR\SignalRChat\obj\Release\SignalRChat.pdb
+D:\我的工作\SignalR\SignalRChat\bin\SignalRChat_MI.dll
+D:\我的工作\SignalR\SignalRChat\bin\SignalRChat_MI.pdb
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.AspNet.SignalR.Client.dll
+D:\我的工作\SignalR\SignalRChat\bin\Microsoft.AspNet.SignalR.Client.xml

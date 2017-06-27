@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SignalRChat_MI;
+using SignalRChat_MI.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

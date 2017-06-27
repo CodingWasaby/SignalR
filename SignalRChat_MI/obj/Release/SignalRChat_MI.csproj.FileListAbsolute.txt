@@ -1,0 +1,9 @@
+D:\我的工作\SignalR\SignalRChat_MI\bin\Release\SignalRChat_MI.dll
+D:\我的工作\SignalR\SignalRChat_MI\bin\Release\SignalRChat_MI.pdb
+D:\我的工作\SignalR\SignalRChat_MI\obj\Release\SignalRChat_MI.dll
+D:\我的工作\SignalR\SignalRChat_MI\obj\Release\SignalRChat_MI.pdb
+D:\我的工作\SignalR\SignalRChat_MI\bin\Release\SignalRChat_MI.dll.config
+D:\我的工作\SignalR\SignalRChat_MI\bin\Release\Microsoft.AspNet.SignalR.Client.dll
+D:\我的工作\SignalR\SignalRChat_MI\bin\Release\Newtonsoft.Json.dll
+D:\我的工作\SignalR\SignalRChat_MI\bin\Release\Microsoft.AspNet.SignalR.Client.xml
+D:\我的工作\SignalR\SignalRChat_MI\bin\Release\Newtonsoft.Json.xml

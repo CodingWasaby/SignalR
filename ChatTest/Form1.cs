@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.SignalR.Client;
+﻿using SignalRChat_MI;
+using SignalRChat_MI.Interface;
+using SignalRChat_MI.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,78 +14,47 @@ using System.Windows.Forms;
 
 namespace ChatTest
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form, IMessageClient
     {
+        private WebSocketFactory _Socket;
         public Form1()
         {
             InitializeComponent();
             alertControl1.AutoFormDelay = 3000;
-            ConnectAsync();
-           
+            _Socket = new WebSocketFactory(this);
+            _Socket.RegisterConnection("123", "ZX");
+        }
+
+        public void SendMessage(MessageModel message)
+        {
+            Action<MessageModel> act = x =>
+            {
+                this.richTextBox1.Text += x.SenderName + ":" + x.Message + "。\r\n";
+            };
+            this.Invoke(act, message);
+        }
+
+        public void SendUserList(List<UserModel> userList)
+        {
+            Action<List<UserModel>> act = x =>
+            {
+                gridControl1.DataSource = x;
+            };
+            this.Invoke(act, userList);
+        }
+
+        public void LoginTip(string userName)
+        {
+
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            HubProxy.Invoke("SendtoAll", "a", "aaa");
+            var random = new Random();
+            var m = new MessageModel();
+            m.SenderName = "ZX";
+            m.Message = "Hello" + random.Next(0, 1000);
+            _Socket.SendtoAll(m);
         }
-
-        public IHubProxy HubProxy { get; set; }
-        const string ServerUri = "http://localhost:9988";
-        public HubConnection Connection { get; set; }
-
-        private async void ConnectAsync()
-        {
-            Connection = new HubConnection(ServerUri);
-            HubProxy = Connection.CreateHubProxy("MessageHub");
-
-
-            Action<List<UserModel>> act = list =>
-            {
-                foreach (var n in list)
-                {
-                    var lines = richTextBox1.Lines.ToList();
-                    lines.Add(n.ConnectionId + "-" + n.OperatorId + "\r\n");
-                    richTextBox1.Lines = lines.ToArray();
-                }
-            };
-
-            Action<string, string> act1 = (x, y) =>
-             {
-                 var lines = richTextBox1.Lines.ToList();
-                 lines.Add(x + ":::" + y + "\r\n");
-                 richTextBox1.Lines = lines.ToArray();
-                 alertControl1.Show(this, x, y);
-             };
-            Action<string> act2 = x =>
-             {
-                 alertControl1.Show(this, "登录提示", x + "登陆了");
-             };
-
-            HubProxy.On<List<UserModel>>("SendUserList", (list) =>
-            {
-                this.Invoke(act, list);
-            });
-
-            HubProxy.On<string, string>("SendMessage", (x, y) =>
-             {
-                 this.Invoke(act1, x, y);
-             });
-            HubProxy.On<string>("LoginTip", x =>
-             {
-                 this.Invoke(act2, x);
-             });
-
-            try
-            {
-                await Connection.Start();
-                HubProxy.Invoke("RegisterConnection", "a", "a");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-        }
-
     }
 }

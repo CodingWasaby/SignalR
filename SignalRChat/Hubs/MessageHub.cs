@@ -4,27 +4,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
-using SignalRChat.Models;
+using SignalRChat_MI.Model;
+using SignalRChat_MI.Interface;
 
 namespace SignalRChat.Hubs
 {
-    public class MessageHub : Hub
+    public class MessageHub : Hub<IMessageClient>, IMessageServer
     {
         private List<UserModel> UserList = new List<UserModel>();
 
-        public void SendtoAll(string senderName, string message)
+        public void SendtoAll(MessageModel message)
         {
-            Clients.All.SendMessage(senderName, message);
+            Clients.All.SendMessage(message);
         }
 
-        public void SendToOthers(string senderName, string message)
+        public void SendToOthers(MessageModel message)
         {
-            Clients.AllExcept(Context.ConnectionId).SendMessage(senderName, message);
+            Clients.AllExcept(Context.ConnectionId).SendMessage(message);
         }
 
-        public void SendToOne(string senderName, string message, string reciverConnectionId)
+        public void SendToOne(MessageModel message)
         {
-            Clients.Client(reciverConnectionId).SendMessage(senderName, message, Context.ConnectionId);
+            if (message.ReciveConnectionID == null)
+            {
+                message.ReciveConnectionID = UserList.First(m => m.OperatorId == message.ReciveID).ConnectionId;
+            }
+            Clients.Client(message.ReciveConnectionID).SendMessage(message);
         }
 
         public void GetUserList()
@@ -42,10 +47,8 @@ namespace SignalRChat.Hubs
                 ConnectionId = Context.ConnectionId
             });
             Clients.All.SendUserList(UserList);
-            //Clients.All.LoginTip(userName);
             Clients.AllExcept(Context.ConnectionId).LoginTip(userName);
         }
-
 
         public override Task OnConnected()
         {
