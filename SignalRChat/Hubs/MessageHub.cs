@@ -11,8 +11,6 @@ namespace SignalRChat.Hubs
 {
     public class MessageHub : Hub<IMessageClient>, IMessageServer
     {
-        private List<UserModel> UserList = new List<UserModel>();
-
         public void SendtoAll(MessageModel message)
         {
             Clients.All.SendMessage(message);
@@ -25,6 +23,7 @@ namespace SignalRChat.Hubs
 
         public void SendToOne(MessageModel message)
         {
+            var UserList = GetUserListFromRedis();
             if (message.ReciveConnectionID == null)
             {
                 message.ReciveConnectionID = UserList.First(m => m.OperatorId == message.ReciveID).ConnectionId;
@@ -34,11 +33,25 @@ namespace SignalRChat.Hubs
 
         public void GetUserList()
         {
+            var UserList = GetUserListFromRedis();
             Clients.Client(Context.ConnectionId).SendUserList(UserList);
+        }
+
+        private List<UserModel> GetUserListFromRedis()
+        {
+            return CacheClass._UserList;
         }
 
         public void RegisterConnection(string operatorId, string userName)
         {
+            var UserList = GetUserListFromRedis();
+            var user = UserList.FirstOrDefault(m => m.OperatorId == operatorId);
+            if (user != null)
+            {
+                var message = new MessageModel();
+                message.OperationType = "DownLine";
+                Clients.Client(user.ConnectionId).SendMessage(message);
+            }
             UserList.RemoveAll(n => n.OperatorId == operatorId || n.ConnectionId == Context.ConnectionId);
             UserList.Add(new UserModel
             {
@@ -46,10 +59,10 @@ namespace SignalRChat.Hubs
                 OperatorId = operatorId,
                 ConnectionId = Context.ConnectionId
             });
+            CacheClass._UserList = UserList;
             Clients.All.SendUserList(UserList);
             Clients.AllExcept(Context.ConnectionId).LoginTip(userName);
         }
-
         public override Task OnConnected()
         {
             return base.OnConnected();
@@ -57,9 +70,11 @@ namespace SignalRChat.Hubs
 
         public override Task OnDisconnected(bool stopCalled)
         {
+            var UserList = GetUserListFromRedis();
             UserList.RemoveAll(n => n.ConnectionId == Context.ConnectionId);
+            CacheClass._UserList = UserList;
             Clients.All.SendUserList(UserList);
-            return base.OnDisconnected(stopCalled);
+            return base.OnDisconnected(true);
         }
     }
 }

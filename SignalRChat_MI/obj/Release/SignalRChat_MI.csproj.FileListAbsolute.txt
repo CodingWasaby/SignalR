@@ -7,3 +7,4 @@ D:\我的工作\SignalR\SignalRChat_MI\bin\Release\Microsoft.AspNet.SignalR.Clie
 D:\我的工作\SignalR\SignalRChat_MI\bin\Release\Newtonsoft.Json.dll
 D:\我的工作\SignalR\SignalRChat_MI\bin\Release\Microsoft.AspNet.SignalR.Client.xml
 D:\我的工作\SignalR\SignalRChat_MI\bin\Release\Newtonsoft.Json.xml
+D:\我的工作\SignalR\SignalRChat_MI\obj\Release\SignalRChat_MI.csprojResolveAssemblyReference.cache

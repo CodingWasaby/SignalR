@@ -19,7 +19,8 @@ namespace SignalRChat_MI
     {
         private IHubProxy HubProxy_Message { get; set; }
         private IHubProxy HubProxy_Chat { get; set; }
-        private HubConnection Connection { get; set; }
+        public HubConnection Connection { get; set; }
+        private IMessageClient _MessageClient { get; set; }
 
         /// <summary>
         /// Socket 客户端
@@ -27,19 +28,8 @@ namespace SignalRChat_MI
         /// <param name="client"></param>
         public FMWebSocket(IMessageClient client = null)
         {
-            var ServerUri = Convert.ToString(ConfigurationManager.AppSettings["WebSocketUri"]);
-            Connection = new HubConnection(ServerUri);
-            HubProxy_Message = Connection.CreateHubProxy("MessageHub");
-            if (client != null)
-                RegisteMessageClientHandler(client);
-            try
-            {
-                Connection.Start().Wait();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _MessageClient = client;
+            ReConnected();
         }
 
         private void RegisteMessageClientHandler(IMessageClient clien)
@@ -64,7 +54,15 @@ namespace SignalRChat_MI
         /// <param name="message"></param>
         public void SendtoAll(MessageModel message)
         {
-            HubProxy_Message.Invoke("SendtoAll", message);
+            try
+            {
+                HubProxy_Message.Invoke("SendtoAll", message);
+            }
+            catch
+            {
+                ReConnected();
+                HubProxy_Message.Invoke("SendtoAll", message);
+            }
         }
         /// <summary>
         /// SendToOthers
@@ -72,7 +70,15 @@ namespace SignalRChat_MI
         /// <param name="message"></param>
         public void SendToOthers(MessageModel message)
         {
-            HubProxy_Message.Invoke("SendToOthers", message);
+            try
+            {
+                HubProxy_Message.Invoke("SendToOthers", message);
+            }
+            catch
+            {
+                ReConnected();
+                HubProxy_Message.Invoke("SendToOthers", message);
+            }
         }
         /// <summary>
         /// SendToOne
@@ -80,14 +86,30 @@ namespace SignalRChat_MI
         /// <param name="message"></param>
         public void SendToOne(MessageModel message)
         {
-            HubProxy_Message.Invoke("SendToOne", message);
+            try
+            {
+                HubProxy_Message.Invoke("SendToOne", message);
+            }
+            catch
+            {
+                ReConnected();
+                HubProxy_Message.Invoke("SendToOne", message);
+            }
         }
         /// <summary>
         /// 获取用户列表
         /// </summary>
         public void GetUserList()
         {
-            HubProxy_Message.Invoke("GetUserList");
+            try
+            {
+                HubProxy_Message.Invoke("GetUserList");
+            }
+            catch
+            {
+                ReConnected();
+                HubProxy_Message.Invoke("GetUserList");
+            }
         }
         /// <summary>
         /// 注册链接
@@ -96,7 +118,32 @@ namespace SignalRChat_MI
         /// <param name="userName"></param>
         public void RegisterConnection(string operatorId, string userName)
         {
-            HubProxy_Message.Invoke("RegisterConnection", operatorId, userName);
+            try
+            {
+                HubProxy_Message.Invoke("RegisterConnection", operatorId, userName);
+            }
+            catch
+            {
+                ReConnected();
+                HubProxy_Message.Invoke("RegisterConnection", operatorId, userName);
+            }
+        }
+
+        private void ReConnected()
+        {
+            var ServerUri = Convert.ToString(ConfigurationManager.AppSettings["WebSocketUri"]);
+            Connection = new HubConnection(ServerUri);
+            HubProxy_Message = Connection.CreateHubProxy("MessageHub");
+            if (_MessageClient != null)
+                RegisteMessageClientHandler(_MessageClient);
+            try
+            {
+                Connection.Start().Wait();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

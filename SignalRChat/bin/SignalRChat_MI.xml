@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SignalRChat_MI</name>
+    </assembly>
+    <members>
+        <member name="M:SignalRChat_MI.Interface.IMessageServer.SendtoAll(SignalRChat_MI.Model.MessageModel)">
+            <summary>
+            SendtoAll
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SignalRChat_MI.Interface.IMessageServer.SendToOthers(SignalRChat_MI.Model.MessageModel)">
+            <summary>
+            SendToOthers
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SignalRChat_MI.Interface.IMessageServer.SendToOne(SignalRChat_MI.Model.MessageModel)">
+            <summary>
+            SendToOne
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SignalRChat_MI.Interface.IMessageServer.GetUserList">
+            <summary>
+            获取用户列表
+            </summary>
+        </member>
+        <member name="M:SignalRChat_MI.Interface.IMessageServer.RegisterConnection(System.String,System.String)">
+            <summary>
+            注册链接
+            </summary>
+            <param name="operatorId"></param>
+            <param name="userName"></param>
+        </member>
+        <member name="T:SignalRChat_MI.FMWebSocket">
+            <summary>
+            Socket 客户端
+            </summary>
+        </member>
+        <member name="M:SignalRChat_MI.FMWebSocket.#ctor(SignalRChat_MI.Interface.IMessageClient)">
+            <summary>
+            Socket 客户端
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="M:SignalRChat_MI.FMWebSocket.SendtoAll(SignalRChat_MI.Model.MessageModel)">
+            <summary>
+            SendtoAll
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SignalRChat_MI.FMWebSocket.SendToOthers(SignalRChat_MI.Model.MessageModel)">
+            <summary>
+            SendToOthers
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SignalRChat_MI.FMWebSocket.SendToOne(SignalRChat_MI.Model.MessageModel)">
+            <summary>
+            SendToOne
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SignalRChat_MI.FMWebSocket.GetUserList">
+            <summary>
+            获取用户列表
+            </summary>
+        </member>
+        <member name="M:SignalRChat_MI.FMWebSocket.RegisterConnection(System.String,System.String)">
+            <summary>
+            注册链接
+            </summary>
+            <param name="operatorId"></param>
+            <param name="userName"></param>
+        </member>
+    </members>
+</doc>

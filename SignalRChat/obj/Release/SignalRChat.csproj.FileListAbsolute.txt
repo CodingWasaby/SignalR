@@ -60,7 +60,6 @@ D:\我的工作\SignalR\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Owin.xml
 D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\我的工作\SignalR\SignalRChat\bin\Microsoft.Owin.Security.xml
-D:\我的工作\SignalR\SignalRChat\bin\Newtonsoft.Json.xml
 D:\我的工作\SignalR\SignalRChat\bin\System.Web.Helpers.xml
 D:\我的工作\SignalR\SignalRChat\bin\System.Web.Mvc.xml
 D:\我的工作\SignalR\SignalRChat\bin\System.Web.Optimization.xml

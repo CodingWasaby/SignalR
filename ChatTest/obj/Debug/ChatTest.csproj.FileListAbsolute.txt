@@ -130,3 +130,4 @@ D:\我的工作\SignalR\ChatTest\bin\Debug\de\DevExpress.Office.v15.1.Core.resou
 D:\我的工作\SignalR\ChatTest\bin\Debug\es\DevExpress.Office.v15.1.Core.resources.dll
 D:\我的工作\SignalR\ChatTest\bin\Debug\ja\DevExpress.Office.v15.1.Core.resources.dll
 D:\我的工作\SignalR\ChatTest\bin\Debug\ru\DevExpress.Office.v15.1.Core.resources.dll
+D:\我的工作\SignalR\ChatTest\bin\Debug\SignalRChat_MI.xml
