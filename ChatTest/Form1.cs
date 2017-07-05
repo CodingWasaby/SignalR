@@ -55,6 +55,7 @@ namespace ChatTest
             m.SenderName = "ZX";
             m.Message = "Hello" + random.Next(0, 1000);
             _Socket.SendtoAll(m);
+            _Socket.RegisterConnection("aa", "bbb");
         }
     }
 }

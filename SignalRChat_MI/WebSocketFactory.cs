@@ -58,10 +58,17 @@ namespace SignalRChat_MI
             {
                 HubProxy_Message.Invoke("SendtoAll", message);
             }
-            catch
+            catch (Exception ex)
             {
-                ReConnected();
-                HubProxy_Message.Invoke("SendtoAll", message);
+                if (Connection != null)
+                {
+                    Connection.Start().Wait();
+                    HubProxy_Message.Invoke("SendtoAll", message);
+                }
+                else
+                {
+                    throw ex;
+                }
             }
         }
         /// <summary>
@@ -74,10 +81,17 @@ namespace SignalRChat_MI
             {
                 HubProxy_Message.Invoke("SendToOthers", message);
             }
-            catch
+            catch (Exception ex)
             {
-                ReConnected();
-                HubProxy_Message.Invoke("SendToOthers", message);
+                if (Connection != null)
+                {
+                    Connection.Start().Wait();
+                    HubProxy_Message.Invoke("SendToOthers", message);
+                }
+                else
+                {
+                    throw ex;
+                }
             }
         }
         /// <summary>
@@ -90,10 +104,17 @@ namespace SignalRChat_MI
             {
                 HubProxy_Message.Invoke("SendToOne", message);
             }
-            catch
+            catch (Exception ex)
             {
-                ReConnected();
-                HubProxy_Message.Invoke("SendToOne", message);
+                if (Connection != null)
+                {
+                    Connection.Start().Wait();
+                    HubProxy_Message.Invoke("SendToOne", message);
+                }
+                else
+                {
+                    throw ex;
+                }
             }
         }
         /// <summary>
@@ -101,15 +122,7 @@ namespace SignalRChat_MI
         /// </summary>
         public void GetUserList()
         {
-            try
-            {
-                HubProxy_Message.Invoke("GetUserList");
-            }
-            catch
-            {
-                ReConnected();
-                HubProxy_Message.Invoke("GetUserList");
-            }
+            HubProxy_Message.Invoke("GetUserList");
         }
         /// <summary>
         /// 注册链接
@@ -118,15 +131,7 @@ namespace SignalRChat_MI
         /// <param name="userName"></param>
         public void RegisterConnection(string operatorId, string userName)
         {
-            try
-            {
-                HubProxy_Message.Invoke("RegisterConnection", operatorId, userName);
-            }
-            catch
-            {
-                ReConnected();
-                HubProxy_Message.Invoke("RegisterConnection", operatorId, userName);
-            }
+            HubProxy_Message.Invoke("RegisterConnection", operatorId, userName);
         }
 
         private void ReConnected()

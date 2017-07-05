@@ -9,5 +9,7 @@ namespace SignalRChat
     public static class CacheClass
     {
         public static List<UserModel> _UserList = new List<UserModel>();
+
+        public static object lockobj = new object();
     }
 }

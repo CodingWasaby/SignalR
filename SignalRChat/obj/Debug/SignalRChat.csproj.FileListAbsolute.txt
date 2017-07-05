@@ -76,3 +76,7 @@ D:\我的工作\SignalR\SignalRChat\obj\Debug\SignalRChat.pdb
 D:\我的工作\SignalR\SignalRChat\bin\Microsoft.AspNet.SignalR.Client.dll
 D:\我的工作\SignalR\SignalRChat\bin\Microsoft.AspNet.SignalR.Client.xml
 D:\我的工作\SignalR\SignalRChat\bin\SignalRChat_MI.xml
+D:\我的工作\SignalR\SignalRChat\bin\log4net.dll
+D:\我的工作\SignalR\SignalRChat\bin\log4net.xml
+D:\我的工作\SignalR\SignalRChat\bin\Log4Net.config
+D:\我的工作\SignalR\SignalRChat\bin\Newtonsoft.Json.xml

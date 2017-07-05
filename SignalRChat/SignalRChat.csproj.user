@@ -7,6 +7,7 @@
     <WebStackScaffolding_LayoutPageFile />
     <UseIISExpress>true</UseIISExpress>
     <NameOfLastUsedPublishProfile>Test</NameOfLastUsedPublishProfile>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
